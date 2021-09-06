@@ -1,0 +1,120 @@
+<jasperReport name="Financiamento viatura report">
+    <parameter name="nome" class="java.lang.String"/>
+    <parameter name="contacto" class="java.lang.String"/>
+    <parameter name="tipoFinanciamento" class="java.lang.String"/>
+    <parameter name="meses" class="java.lang.Long"/>
+    <parameter name="nomeViatura" class="java.lang.String"/>
+    <parameter name="valorViatura" class="java.lang.Double"/>
+    <parameter name="fator" class="java.lang.Double"/>
+    <parameter name="prestacao" class="java.lang.Double"/>
+    <title>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="200" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                  <![CDATA["Financiamento Viatura"]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <detail>
+        <band height="200">
+            <textField>
+                <reportElement x="0" y="0" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                  <![CDATA["Nome: "]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="140" y="0" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                  <![CDATA[$P{nome}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="20" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                  <![CDATA["Contacto: "]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="140" y="20" width="200" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                  <![CDATA[$P{contacto}]]></textFieldExpression>
+            </textField>
+			<textField>
+                <reportElement x="0" y="40" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                  <![CDATA["Tipo Financiamento: "]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="140" y="40" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                  <![CDATA[$P{tipoFinanciamento}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="60" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                  <![CDATA["Meses: "]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="140" y="60" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.Long">
+                  <![CDATA[$P{meses}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="80" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.String">
+                  <![CDATA["Nome Viatura: "]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="140" y="80" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.Long">
+                  <![CDATA[$P{nomeViatura}]]></textFieldExpression>
+            </textField>
+			<textField>
+                <reportElement x="0" y="100" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.Double">
+                  <![CDATA["Valor Viatura: "]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="140" y="100" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.Double">
+                  <![CDATA[$P{valorViatura}]]></textFieldExpression>
+            </textField>
+			<textField>
+                <reportElement x="0" y="120" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.Double">
+                  <![CDATA["Fator: "]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="140" y="120" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.Double">
+                  <![CDATA[$P{fator}]]></textFieldExpression>
+            </textField>
+			<textField>
+                <reportElement x="0" y="140" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.Double">
+                  <![CDATA["Prestação: "]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="140" y="140" width="100" height="20"/>
+                <textElement/>
+                <textFieldExpression class="java.lang.Double">
+                  <![CDATA[$P{prestacao}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

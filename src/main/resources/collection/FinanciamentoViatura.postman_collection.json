@@ -1,0 +1,406 @@
+{
+	"info": {
+		"_postman_id": "721dc60b-46a4-4880-ac9b-b92fd0b493f9",
+		"name": "FinanciamentoViatura",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Find all viatura 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/viatura",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"viatura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find all tipos financiamento 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Dois tipos de financiamento\", function () {\r",
+							"    pm.response.json().length == 2;\r",
+							"    var response = pm.response;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/tipo-financiamento",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tipo-financiamento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find all meses por tipo financiamento interno 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"5 períodos de meses\", function () {\r",
+							"    pm.response.json().length == 5\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/tipo-financiamento/1/mensalidade",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tipo-financiamento",
+						"1",
+						"mensalidade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find all meses por tipo financiamento interno 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"4 períodos de meses\", function () {\r",
+							"    pm.response.json().length == 4;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/tipo-financiamento/2/mensalidade",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tipo-financiamento",
+						"2",
+						"mensalidade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get prestacao interno 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/prestacao?valorViatura=2000.4&meses=24&tipoFinanciamento=Interno",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prestacao"
+					],
+					"query": [
+						{
+							"key": "valorViatura",
+							"value": "2000.4"
+						},
+						{
+							"key": "meses",
+							"value": "24"
+						},
+						{
+							"key": "tipoFinanciamento",
+							"value": "Interno"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get prestacao interno 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/prestacao?valorViatura=2000.4&meses=24&tipoFinanciamento=",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prestacao"
+					],
+					"query": [
+						{
+							"key": "valorViatura",
+							"value": "2000.4"
+						},
+						{
+							"key": "meses",
+							"value": "24"
+						},
+						{
+							"key": "tipoFinanciamento",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get prestacao externo 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/prestacao?valorViatura=5000.80&meses=12&tipoFinanciamento=Externo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prestacao"
+					],
+					"query": [
+						{
+							"key": "valorViatura",
+							"value": "5000.80"
+						},
+						{
+							"key": "meses",
+							"value": "12"
+						},
+						{
+							"key": "tipoFinanciamento",
+							"value": "Externo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get prestacao externo 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/prestacao?valorViatura=5000.80&tipoFinanciamento=Externo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prestacao"
+					],
+					"query": [
+						{
+							"key": "valorViatura",
+							"value": "5000.80"
+						},
+						{
+							"key": "tipoFinanciamento",
+							"value": "Externo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate report 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Salvador\",\r\n    \"contacto\": \"salvador.caetano@gmail.com\",\r\n    \"tipoFinanciamento\": \"Externo\",\r\n    \"meses\": 24,\r\n    \"nomeViatura\": \"B\",\r\n    \"valorViatura\": 5000.80,\r\n    \"prestacao\": 443.82099999999997\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/relatorio",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"relatorio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate report 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nomeViatura\": \"B\",\r\n    \"valorViatura\": 5000.80,\r\n    \"prestacao\": 443.82099999999997\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/relatorio",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"relatorio"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
